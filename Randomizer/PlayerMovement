@@ -1,7 +1,5 @@
 // misschien niet mijn beste werk, maar een back-up is een back-up
 
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
@@ -20,6 +18,7 @@ public class PlayerMovement : MonoBehaviour
     public float mouseSensitivity = 150f;
     private float xRotation = 0f;
 
+    [Header("Ladder Settings")]
     public bool isOnLadder = false;
 
     void Start()
@@ -43,7 +42,9 @@ public class PlayerMovement : MonoBehaviour
         if (isOnLadder)
         {
             float verticalVelocity = 2;
+
             rb.velocity = new Vector3(move.x * moveSpeed, verticalVelocity, move.z * moveSpeed);
+
             rb.useGravity = false;
         }
         else
